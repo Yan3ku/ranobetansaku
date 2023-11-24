@@ -1,0 +1,15 @@
+{
+    "name": "yaneku/ranobetansaku",
+    "description": "Light Novel Index",
+    "type": "project",
+    "require": {
+        "mongodb/mongodb": "^1.1"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "yan3ku",
+            "email": "wisniewskijas@outlook.com"
+        }
+    ]
+}

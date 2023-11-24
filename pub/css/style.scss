@@ -1,0 +1,261 @@
+$color-bg:     #2a2a37fa;
+$color-dark:   #2a2a37;
+$color-darker: #1F1F28;
+$color-white:  #DCD7BA;
+$color-gray:   #2a2a37;
+
+@mixin floating {
+    border-radius: 1rem;
+    box-shadow: -0.5rem 0.5rem 1rem 0.1rem $color-darker;
+}
+
+*, *::before, *::after {
+    padding:    0;
+    margin:     0;
+    outline:    none;
+    border:     none;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5%;
+}
+
+::selection {
+    color: $color-darker;
+    background-color: $color-white;
+}
+
+body {
+    font-family: "Roboto", "Noto Sans JP", sans-serif;
+    font-size: 1.8rem;
+    @media (max-width: 750px) {
+        font-size: 1.6rem;
+    }
+    line-height: 1.5;
+    background-image: url("../img/the-great-wave-of-kanagawa.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    color: $color-white;
+}
+
+main {
+    @include floating;
+    margin: 2rem auto;
+    width: min(100% - 2rem, 750px);
+    background-color: $color-bg;
+}
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .25rem 1rem;
+    &__h1 {
+        font-size: 1em;
+        margin-right: auto;
+
+    }
+    &__p {
+        font-style: italic;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        color: $color-white;
+
+    }
+    &__select {
+        padding: .5rem;
+        text-align: right;
+        background: transparent;
+        color: $color-white;
+        font-size: 1.3em;
+        option {
+            background-color: $color-bg;
+            padding: .5rem;
+
+        }
+
+    }
+}
+
+.navbar {
+    border-bottom: 4px solid $color-darker;
+    background: $color-dark;
+    text-transform: capitalize;
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    justify-content: flex-end;
+    padding: 1rem 1.5rem;
+    li:first-child {
+        margin-right: auto;
+    }
+
+}
+
+.search {
+    border: 1px solid $color-darker;
+    display: flex;
+    align-items: stretch;
+
+    &__input {
+        color: $color-white;
+        background: transparent;
+        padding: 0 1rem;
+        flex-grow: 1;
+
+        &::placeholder {
+            color: $color-white;
+            opacity: 0.5;
+        }
+    }
+
+    &__button {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        transition: background 150ms ease-in-out;
+        text-transform: uppercase;
+        background: $color-darker;
+        color: $color-white;
+        font-size: 2rem;
+        padding: 1rem;
+
+        &:hover {
+            background: $color-dark;
+
+        }
+
+    }
+
+    &__dropdown {
+        position: relative;
+    }
+
+}
+
+
+.filter {
+    @include floating;
+    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+    transform: translateY(-10px);
+    opacity: 0;
+    pointer-events: none;
+
+    .dropdown--active & {
+        pointer-events: auto;
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    padding: 1.5rem;
+    background-color: $color-darker;
+
+    position: absolute;
+    top: calc(100% + 1rem);
+    right: 1rem;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+
+    input {
+        background-color: $color-dark;
+        color: $color-white;
+        padding: .5rem;
+    }
+
+    &__l-tags {
+        grid-column-end: span 2;
+        display: flex;
+    }
+
+    &__date {
+        display: grid;
+        align-items: center;
+        grid-template-columns: 1fr 2fr;
+        gap: 1rem;
+
+        label {
+            font-size: smaller;
+        }
+    }
+
+    &__tag {
+        font-size: x-small;
+        padding: .25rem;
+        background-color: $color-dark;
+    }
+}
+
+.card {
+    padding: 1.5rem;
+    border-bottom: 1px solid $color-darker;
+
+    &__title {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    &__img {
+        --grid-row: span 2;
+        width: 150px;
+        object-fit: cover;
+        grid-row: var(--grid-row);
+    }
+
+    &__content {
+        display: grid;
+        grid-template-rows: 1fr min-content;
+        grid-template-columns: min-content 1fr;
+        gap: 1rem;
+    }
+
+    &__tag {
+        display: inline-block;
+        background-color: $color-darker;
+        padding: 0 .25rem;
+        font-size: x-small;
+    }
+
+    &__date {
+        font-size: x-small;
+    }
+
+    &__description {
+        --order: 0;
+        --grid-column: auto;
+        order: var(--order);
+        grid-column: var(--grid-column);
+        font-size: smaller;
+    }
+
+    &__tags {
+        --order: 0
+        order: var(--order);
+    }
+
+    @media (max-width: 500px) {
+        &__description {
+            --grid-column: span 2;
+            --order: 2;
+        }
+        &__tags {
+            --order: 1;
+        }
+        &__img {
+            --grid-row: auto;
+        }
+    }
+}
+
+
+
+.content {
+
+}
+
