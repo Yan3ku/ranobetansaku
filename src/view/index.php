@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<?php
-?>
 <html lang="en">
 <head>
   <title>ラノベ探索</title>
