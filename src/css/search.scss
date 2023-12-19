@@ -1,0 +1,42 @@
+@import "common.scss";
+
+.search {
+    border: 1px solid $color-darker;
+    display: flex;
+    align-items: stretch;
+
+    &__input {
+        color: $color-white;
+        background: transparent;
+        padding: 0 1rem;
+        flex-grow: 1;
+
+        &::placeholder {
+            color: $color-white;
+            opacity: 0.5;
+        }
+    }
+
+    &__button {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        transition: background 150ms ease-in-out;
+        text-transform: uppercase;
+        background: $color-darker;
+        color: $color-white;
+        font-size: 2rem;
+        padding: 1rem;
+
+        &:hover {
+            background: $color-dark;
+
+        }
+
+    }
+
+    &__dropdown {
+        position: relative;
+    }
+
+}

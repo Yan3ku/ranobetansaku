@@ -1,0 +1,10 @@
+$color-bg:     #2a2a37fa;
+$color-dark:   #2a2a37;
+$color-darker: #1F1F28;
+$color-white:  #DCD7BA;
+$color-gray:   #2a2a37;
+
+@mixin floating {
+    border-radius: 1rem;
+    box-shadow: -0.5rem 0.5rem 1rem 0.1rem $color-darker;
+}

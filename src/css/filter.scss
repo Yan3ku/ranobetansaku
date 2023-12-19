@@ -1,0 +1,58 @@
+@import "common.scss";
+
+.filter {
+    @include floating;
+    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+    transform: translateY(-10px);
+    opacity: 0;
+    pointer-events: none;
+
+    .dropdown--active & {
+        pointer-events: auto;
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    padding: 1.5rem;
+    background-color: $color-darker;
+
+    position: absolute;
+    top: calc(100% + 1rem);
+    right: 1rem;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+
+    &__cover {
+        width: 100vw;
+    }
+
+    input {
+        background-color: $color-dark;
+        color: $color-white;
+        padding: .5rem;
+    }
+
+    &__l-tags {
+        grid-column-end: span 2;
+        display: flex;
+    }
+
+    &__date {
+        display: grid;
+        align-items: center;
+        grid-template-columns: 1fr 2fr;
+        gap: 1rem;
+
+        label {
+            font-size: smaller;
+        }
+    }
+
+    &__tag {
+        font-size: x-small;
+        padding: .25rem;
+        background-color: $color-dark;
+    }
+}

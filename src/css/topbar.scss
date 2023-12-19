@@ -1,0 +1,16 @@
+@import "common.scss";
+
+.topbar {
+    border-bottom: 4px solid $color-darker;
+    background: $color-dark;
+    text-transform: capitalize;
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    justify-content: flex-end;
+    padding: 1rem 1.5rem;
+    li:first-child {
+        margin-right: auto;
+    }
+
+}

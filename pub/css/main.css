@@ -1,0 +1,50 @@
+*, *::before, *::after {
+  padding: 0;
+  margin: 0;
+  outline: none;
+  border: none;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --color-bg:     #2a2a37fa;
+  --color-blue:   #7aa2f7;
+  --color-dark:   #2a2a37;
+  --color-darker: #1F1F28;
+  --color-text:   #DCD7BA;
+  --color-gray:   #2a2a37;
+}
+
+::selection {
+  color: var(--color-darker);
+  background-color: var(--color-text);
+}
+
+body {
+  font-family: "Roboto", "Noto Sans JP", sans-serif;
+  font-size: 1.8rem;
+  line-height: 1.5;
+  background-image: url("../img/the-great-wave-of-kanagawa.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  color: var(--color-text);
+}
+
+@media (max-width: 750px) {
+  body {
+    font-size: 1.6rem;
+  }
+}
+
+main {
+  border-radius: 1rem;
+  box-shadow: -0.5rem 0.5rem 1rem 0.1rem var(--color-darker);
+  --margin: 1rem;
+  margin: var(--margin) auto;
+  width: min(100% - var(--margin) * 2, 750px);
+  background-color: var(--color-bg);
+}

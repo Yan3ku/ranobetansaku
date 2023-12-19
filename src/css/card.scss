@@ -1,0 +1,67 @@
+@import "common.scss";
+
+.card {
+    padding: 1.5rem;
+    border-bottom: 1px solid $color-darker;
+    border-radius: 1rem;
+
+    &:last-child {
+	    border-bottom: none;
+    }
+
+    &__title {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    &__img {
+        --grid-row: span 2;
+        width: 150px;
+        object-fit: cover;
+        grid-row: var(--grid-row);
+    }
+
+    &__content {
+        display: grid;
+        grid-template-rows: 1fr min-content;
+        grid-template-columns: min-content 1fr;
+        gap: 1rem;
+    }
+
+    &__tag {
+        display: inline-block;
+        background-color: $color-darker;
+        padding: 0 .25rem;
+        font-size: x-small;
+    }
+
+    &__date {
+        font-size: x-small;
+    }
+
+    &__description {
+        --order: 0;
+        --grid-column: auto;
+        order: var(--order);
+        grid-column: var(--grid-column);
+        font-size: smaller;
+    }
+
+    &__tags {
+        --order: 0
+        order: var(--order);
+    }
+
+    @media (max-width: 500px) {
+        &__description {
+            --grid-column: span 2;
+            --order: 2;
+        }
+        &__tags {
+            --order: 1;
+        }
+        &__img {
+            --grid-row: auto;
+        }
+    }
+}
