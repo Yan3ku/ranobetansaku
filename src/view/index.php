@@ -12,14 +12,19 @@
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
   <script src="/js/dropdown.js" type="module" defer></script>
   <script src="/js/contentload.js" type="module" defer></script>
+  <script src="/js/validatepasswd.js" type="module" defer></script>
 </head>
 
 <body>
   <nav>
     <ul class="topbar">
       <li>何ですか</li>
-      <li>login</li>
-      <li>sing up</li>
+<?php if ($app->islogged()): ?>
+      <li><?php include $app->path["src"]."comp/logout.php" ?></li>
+<?php else: ?>
+      <li><?php include $app->path["src"]."comp/login.php" ?></li>
+      <li><?php include $app->path["src"]."comp/signup.php" ?></li>
+<?php endif ?>
     </ul>
   </nav>
   <main>

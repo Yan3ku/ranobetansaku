@@ -2,6 +2,10 @@
 
 class App {
     const ERROR = "ERROR";
+    const EMAIL = "EMAIL";
+    const LOGIN = "LOGIN";
+    const PASSWD = "PASSWD";
+    const PAGE = 3;
 	public $ctrl;
 	public $path;
 	public $url;
@@ -68,6 +72,10 @@ HTML;
         return $this->path["upload"] . $name;
     }
 
+    function islogged() {
+        return isset($_SESSION[self::LOGIN]);
+    }
+
     function saveCover($file, $title) {
         $target = $this->getCoverPath($title);
         if (!move_uploaded_file($file, $target)) {
@@ -94,9 +102,23 @@ HTML;
         imagejpeg($image, $save);
     }
 
+    function getUsers() {
+        return $this->getdb()->users;
+    }
+
+    function loginas($user) {
+        $_SESSION[self::LOGIN] = $user["login"];
+        $_SESSION[self::PASSWD] = $user["passwd"];
+        $_SESSION[self::EMAIL] = $user["email"];
+    }
+
+    function findUser($login) {
+        return $this->getUsers()->findOne(["login" => $login]);
+    }
+
     function getNovels() {
         $page = $_GET["q"] ?? 1;
-        $pageSize = 1;
+        $pageSize = self::PAGE;
         $opts = [
             'skip' => ($page - 1) * $pageSize,
             'limit' => $pageSize
@@ -108,6 +130,10 @@ HTML;
             echo "Something in universe went wrong";
             exit;
         }
+    }
+
+    function getPages() {
+        return $this->getdb()->novels->count() / self::PAGE + 1;
     }
 
     function addNovel($novel) {

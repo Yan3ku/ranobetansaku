@@ -34,6 +34,14 @@
   background-color: color-mix(in srgb, black, transparent 100%);
 }
 
+.filter button {
+    grid-column: span 2;
+    padding: 0.25rem;
+    font-size: large;
+    color: var(--color-text);
+    background-color: var(--color-blue);
+}
+
 .filter input {
   background-color: var(--color-dark);
   color: var(--color-text);

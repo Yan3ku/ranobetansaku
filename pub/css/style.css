@@ -6,3 +6,16 @@
 @import url("overlay.css");
 @import url("topbar.css");
 @import url("add.css");
+@import url("login.css");
+
+.page__ul {
+    display: flex;
+    justify-content: center;
+    font-size: larger;
+    font-style: bold;
+    list-style: none;
+    padding: 1rem;
+}
+.page__ul li {
+    color: var(--color-text);
+}
